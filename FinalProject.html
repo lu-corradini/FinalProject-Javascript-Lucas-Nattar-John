@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <style>
+        td{
+            border: solid 1px;
+            border-collapse: collapse;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+
+    </table>
+</body>
+<script>
+    let size, values;
+    let tablePop = (values) => {
+        const table = document.querySelector("table");
+        for(let rowidx in values){
+            let tr = document.createElement("tr");
+            for(let colIdx in values[rowidx]){
+                let td = document.createElement("td");
+                td.innerHTML = values[rowidx][colIdx];
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    }
+    let loadJson = () =>{
+        const xmlHTTP = new XMLHttpRequest();
+        xmlHTTP.onload = function(){
+            let output = JSON.parse(this.responseText)[0];
+            console.log(output);
+            size = output.size;
+            values = output.values;
+            tablePop(values);
+        }
+        xmlHTTP.open("GET","./data/source.json",true);
+        xmlHTTP.send();
+    }
+    loadJson();
+</script>
+</html>
