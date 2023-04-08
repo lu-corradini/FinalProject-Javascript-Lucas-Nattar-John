@@ -22,6 +22,7 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             height: 30vh;
+            border: 1px solid black;
         }
         section{
             border-top-right-radius: 10px;
@@ -53,6 +54,34 @@
             font-size: 26px;
             color: darkslategray;
         }
+        nav > ul{
+            display: flex;
+            list-style-type: none;
+            column-gap: 15vh;
+            background-image: url(/img/bg-header.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            border: 1px solid black;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
+            height: 7vh;
+        }
+        li{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 0.5%;
+            transition: .5s;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        li:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +93,13 @@
             </article>
         </section>
     </header>
+    <nav>
+        <ul>
+            <li>Easy</li>
+            <li>Normal</li>
+            <li>Hard</li>
+        </ul>
+    </nav>
     <main>
         <table>
     
