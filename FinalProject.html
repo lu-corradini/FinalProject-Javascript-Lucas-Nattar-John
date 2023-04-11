@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Sudoku Game</title>
 
     <style>
@@ -21,7 +22,8 @@
             color: white;
         }
         .selected{
-            background-color: rgb(152, 152, 255);
+            background-color: rgb(110, 110, 245);
+            color: white;
         }
         header{
             background-image: url(/img/bg-header.jpg);
@@ -126,6 +128,7 @@
             let tr = document.createElement("tr");
             for(let colIdx in values[rowidx]){
                 let td = document.createElement("td");
+                td.classList.add("box")
                 td.innerHTML = values[rowidx][colIdx];
                 tr.appendChild(td);
             }
@@ -144,6 +147,10 @@
         xmlHTTP.open("GET","./data/source.json",true);
         xmlHTTP.send();
     }
+    $("table").on("click", "td.box", function() {
+      $("td.box.selected").removeClass("selected");
+      $(this).addClass("selected");
+    });
     loadJson();
 </script>
 </html>
