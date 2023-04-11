@@ -5,6 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Game</title>
+
+    <style>
+        td{
+            border: solid 1px;
+            border-collapse: collapse;
+            padding: 4px;
+        }
+        header{
+            background-image: url(/img/bg-header.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 30vh;
+            border: 1px solid black;
+        }
+        section{
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            padding-left: 5%;
+        }
+        article{
+            border: 1px solid white;
+            border-radius: 5px;
+            width: 20%;
+            height: 60%;
+            /* display: flex;
+            flex-direction: column;
+            row-gap: 0vh; */
+            background-color: rgba(255, 255, 255, .2);
+        }
+        h1{
+            padding-left: 4%;
+            font-size: 24px;
+        }
+        h2{
+            padding-left: 4%;
+            font-size: 26px;
+            color: darkslategray;
+        }
+        nav > ul{
+            display: flex;
+            list-style-type: none;
+            column-gap: 15vh;
+            background-image: url(/img/bg-header.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            border: 1px solid black;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
+            height: 7vh;
+        }
+        li{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 0.5%;
+            transition: .5s;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        li:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
