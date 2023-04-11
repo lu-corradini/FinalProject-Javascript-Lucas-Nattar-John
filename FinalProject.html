@@ -25,7 +25,7 @@
         </ul>
     </nav>
     <main>
-        <table class="table">
+        <table id="sudoku-board" class="table">
     
         </table>
         <div id="numbers">
@@ -71,5 +71,42 @@
         }
     }
     options();
+
+    // Define the Sudoku board
+    const sudokuBoard = [
+        [1, 0, 0, 4, 0, 3, 0, 0, 2],
+        [0, 4, 3, 0, 0, 5, 0, 9, 0],
+        [0, 0, 0, 0, 8, 0, 0, 1, 4],
+
+        [7, 0, 0, 2, 0, 8, 0, 0, 0],
+        [0, 6, 0, 0, 0, 0, 4, 0, 3],
+        [0, 3, 0, 0, 0, 9, 0, 0, 8],
+
+        [0, 0, 6, 9, 0, 0, 2, 0, 0],
+        [0, 9, 0, 0, 0, 0, 0, 8, 0],
+        [3, 0, 0, 8, 6, 0, 9, 0, 0]
+
+    ];
+  
+    // return the Sudoku board
+  const sudokuContainer = document.getElementById('sudoku-board');
+  for (let i = 0; i < 9; i++) {
+    for (let k = 0; k < 9; k++) {
+      const cell = document.getElementById('div');
+      cell.className = 'cell';
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.maxLength = 1;
+      input.value = sudokuBoard[i][k] === 0 ? '' : sudokuBoard[i][k];
+      input.readOnly = sudokuBoard[i][k] !== 0;
+      cell.appendChild(input);
+      sudokuContainer.appendChild(cell);
+    }
+  }
+
+   
+
+
+
 </script>
 </html>
