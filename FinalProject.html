@@ -7,10 +7,21 @@
     <title>Sudoku Game</title>
 
     <style>
+        main{
+            display: flex;
+            justify-content: center;
+        }
         td{
             border: solid 1px;
             border-collapse: collapse;
-            padding: 4px;
+            padding: 13px;
+        }
+        td:hover{
+            background-color: rgb(110, 110, 245);
+            color: white;
+        }
+        .selected{
+            background-color: rgb(152, 152, 255);
         }
         header{
             background-image: url(/img/bg-header.jpg);
@@ -39,7 +50,8 @@
             border: 1px solid white;
             border-radius: 5px;
             width: 20%;
-            height: 60%;
+            height: 70%;
+            text-align: center;
             /* display: flex;
             flex-direction: column;
             row-gap: 0vh; */
@@ -106,7 +118,6 @@
         </table>
     </main>
 </body>
-
 <script>
     let size, values;
     let tablePop = (values) => {
