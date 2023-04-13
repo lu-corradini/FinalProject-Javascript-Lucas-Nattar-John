@@ -29,7 +29,7 @@
         <div id="numbers">
 
         </div>
-        <button onclick="checkSudoku()">Check Sudoku</button>
+        <button id="check-button" onclick="checkSudoku()">Check Sudoku</button>
     </nav>
     <main>
         <!-- <table class="table">
@@ -138,25 +138,65 @@
     function checkSudoku() {
         let sudoku = [];
 
-        // Get values from input cells and create a 2D array for Sudoku grid
+        // Get values from input cells and create aื array for Sudoku grid
         for (let i = 0; i < cells.length; i++) {
-            const value = parseInt(cells[i].value);
+            let value = parseInt(cells[i].value);
             sudoku.push(value);
         }
 
         // Check for errors
-        let errorIndices = findSudokuErrors(sudoku);
+        let errorIndex = findSudokuErrors(sudoku);
 
+        // Apply error classes to cells with errors
+        for (let i = 0; i < errorIndex.length; i++) {
+            let index = errorIndex[i];
+            cells[index].classList.add('error');
+        }
         // Reset error classes
         for (let i = 0; i < cells.length; i++) {
             cells[i].classList.remove('error');
         }
 
-        // Apply error classes to cells with errors
-        for (let i = 0; i < errorIndices.length; i++) {
-            let index = errorIndices[i];
-            cells[index].classList.add('error');
+    }
+
+    function findSudokuErrors(sudoku) {
+        const errorIndex = [];
+        const size = 9; // Sudoku grid size
+        const rows = Array.from({ length: size }, () => new Set());
+        const cols = Array.from({ length: size }, () => new Set());
+        const boxes = Array.from({ length: size }, () => new Set());
+
+        for (let i = 0; i < sudoku.length; i++) {
+            const value = sudoku[i];
+            const row = Math.floor(i / size);
+            const col = i % size;
+            const box = Math.floor(row / 3) * 3 + Math.floor(col / 3);
+
+            if (value === 0) continue;
+
+            // Check row
+            if (rows[row].has(value)) {
+                errorIndex.push(i);
+            } else {
+                rows[row].add(value);
+            }
+
+            // Check column
+            if (cols[col].has(value)) {
+                errorIndex.push(i);
+            } else {
+                cols[col].add(value);
+            }
+
+            // Check box
+            if (boxes[box].has(value)) {
+                errorIndex.push(i);
+            } else {
+                boxes[box].add(value);
+            }
         }
+
+        return errorIndex;
     }
 
      
