@@ -12,8 +12,8 @@
     <header>
         <section>
             <article class="headline">
-                <h1>Your New</h1>
-                <h2>Sudoku Game</h2>
+                <h1>Sudoku Game</h1>
+                <h3>Lucas | Natt | John</h3>
             </article>
             <button class="new" onClick="window.location.reload()">
                 <p>Start Your Game Again</p>
@@ -29,6 +29,7 @@
         <div id="numbers">
 
         </div>
+        <button onclick="checkSudoku()">Check Sudoku</button>
     </nav>
     <main>
         <!-- <table class="table">
@@ -58,6 +59,20 @@
     [0, 9, 0, 0, 0, 0, 0, 8, 0],
     [3, 0, 0, 8, 6, 0, 9, 0, 0]
     ];
+
+    const solution = [
+        [1, 8, 7, 4, 9, 3, 6, 5, 2],
+        [6, 4, 3, 1, 2, 5, 8, 9, 7],
+        [2, 5, 9, 7, 8, 6, 3, 1, 4],
+
+        [7, 1, 4, 2, 3, 8, 5, 6, 9],
+        [9, 6, 8, 5, 7, 1, 4, 2, 3],
+        [5, 3, 2, 6, 4, 9, 1, 7, 8],
+
+        [8, 7, 6, 9, 1, 4, 2, 3, 5],
+        [4, 9, 1, 3, 5, 2, 7, 8, 6],
+        [3, 2, 5, 8, 6, 7, 9, 4, 1]
+    ];  
   
     // Render the Sudoku board
     const sudokuContainer = document.getElementById('sudoku-board');
@@ -110,5 +125,41 @@
             }
         }
     }
+    // Add event listeners to input cells
+    let cells = document.getElementsByClassName('cell');
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener('input', checkSudoku);
+    }
+
+    // Add event listener to check button
+    let checkButton = document.getElementById('check-button');
+    checkButton.addEventListener('click', checkSudoku);
+
+    function checkSudoku() {
+        let sudoku = [];
+
+        // Get values from input cells and create a 2D array for Sudoku grid
+        for (let i = 0; i < cells.length; i++) {
+            const value = parseInt(cells[i].value);
+            sudoku.push(value);
+        }
+
+        // Check for errors
+        let errorIndices = findSudokuErrors(sudoku);
+
+        // Reset error classes
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].classList.remove('error');
+        }
+
+        // Apply error classes to cells with errors
+        for (let i = 0; i < errorIndices.length; i++) {
+            let index = errorIndices[i];
+            cells[index].classList.add('error');
+        }
+    }
+
+     
+
 </script>
 </html>
