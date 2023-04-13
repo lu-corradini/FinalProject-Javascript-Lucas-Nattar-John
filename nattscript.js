@@ -7,7 +7,7 @@ for (let i = 0; i < 9; i++) {
   for (let j = 0; j < 9; j++) {
     const box = document.createElement('div');
     box.classList.add('box');
-    box.innerHTML = `<input type="number" min="1" max="9" value="">`;
+    box.innerHTML = `<input type="number" class="input" value="">`;
     cells.push(box);
     board.appendChild(box);
   }

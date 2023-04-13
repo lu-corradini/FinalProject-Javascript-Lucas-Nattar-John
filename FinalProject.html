@@ -18,95 +18,75 @@
         </section>
     </header>
     <nav>
-        <ul>
+        <!-- <ul>
             <li>Easy</li>
             <li>Normal</li>
             <li>Hard</li>
-        </ul>
-    </nav>
-    <main>
-        <table id="sudoku-board" class="table">
-    
-        </table>
+        </ul> -->
         <div id="numbers">
 
         </div>
+    </nav>
+    <main>
+        <!-- <table class="table">
+    
+        </table> -->
+        <div id="sudoku-board">
+
+        </div>
+        <!-- <div id="numbers">
+
+        </div> -->
     </main>
 </body>
 <script>
-    let size, values;
-    let tablePop = (values) => {
-        const table = document.querySelector("table");
-        for(let rowidx in values){
-            let tr = document.createElement("tr");
-            for(let colIdx in values[rowidx]){
-                let td = document.createElement("td");
-                td.innerHTML = values[rowidx][colIdx];
-                tr.appendChild(td);
-            }
-            table.appendChild(tr);
-        }
-    }
-    let loadJson = () =>{
-        const xmlHTTP = new XMLHttpRequest();
-        xmlHTTP.onload = function(){
-            let output = JSON.parse(this.responseText)[0];
-            console.log(output);
-            size = output.size;
-            values = output.values;
-            tablePop(values);
-        }
-        xmlHTTP.open("GET","./data/source.json",true);
-        xmlHTTP.send();
-    }
-    loadJson();
-
+    let numberSelected = null;
     let options = ()=>{
         for(let n=1; n<=9; n++){
             let numbers = document.createElement("div");
+            // console.log(numbers.id);
             numbers.id = n;
             numbers.innerText = n;
+            numbers.addEventListener("click",numSelected);
             numbers.classList.add("number");
             document.getElementById("numbers").appendChild(numbers);
         }
     }
     options();
 
-    // Define the Sudoku board
-    const sudokuBoard = [
-        [1, 0, 0, 4, 0, 3, 0, 0, 2],
-        [0, 4, 3, 0, 0, 5, 0, 9, 0],
-        [0, 0, 0, 0, 8, 0, 0, 1, 4],
-
-        [7, 0, 0, 2, 0, 8, 0, 0, 0],
-        [0, 6, 0, 0, 0, 0, 4, 0, 3],
-        [0, 3, 0, 0, 0, 9, 0, 0, 8],
-
-        [0, 0, 6, 9, 0, 0, 2, 0, 0],
-        [0, 9, 0, 0, 0, 0, 0, 8, 0],
-        [3, 0, 0, 8, 6, 0, 9, 0, 0]
-
-    ];
-  
-    // return the Sudoku board
-  const sudokuContainer = document.getElementById('sudoku-board');
-  for (let i = 0; i < 9; i++) {
-    for (let k = 0; k < 9; k++) {
-      const cell = document.getElementById('div');
-      cell.className = 'cell';
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.maxLength = 1;
-      input.value = sudokuBoard[i][k] === 0 ? '' : sudokuBoard[i][k];
-      input.readOnly = sudokuBoard[i][k] !== 0;
-      cell.appendChild(input);
-      sudokuContainer.appendChild(cell);
+    // function numSelected(){
+    //     numberSelected = this;
+    //     numberSelected.classList.add("numSelected")
+    // }
+    function numSelected(){  //function to select the numbers
+        if(numberSelected != null){  // if the number  that is clicked, it is going to run this function
+            numberSelected.classList.remove("numSelected");
+            numberSelected = null; // going back to null after running it,
+        }else{
+            numberSelected = this;
+            numberSelected.classList.add("numSelected");
+        }
+        
     }
-  }
 
-   
+    const board = document.getElementById('sudoku-board');
+    let cells = [];
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            box.addEventListener("click",seleNum);
+            box.innerHTML = `<input type="number">`;
+            cells.push(box);
+            board.appendChild(box);
+        }
+    }
 
-
-
+    function seleNum(){
+        if(numberSelected){
+            this.innerHTML = numberSelected.id;
+        }
+    }
+    
 </script>
 </html>
