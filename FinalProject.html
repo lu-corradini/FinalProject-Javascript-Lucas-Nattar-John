@@ -7,7 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <title>Sudoku Game</title>
-
 </head>
 <body>
     <header>
@@ -26,7 +25,7 @@
         </ul>
     </nav>
     <main>
-        <table>
+        <table class="table">
     
         </table>
         <div id="numbers">
@@ -66,5 +65,16 @@
       $(this).addClass("selected");
     });
     loadJson();
+
+    let options = ()=>{
+        for(let n=1; n<=9; n++){
+            let numbers = document.createElement("div");
+            numbers.id = n;
+            numbers.innerText = n;
+            numbers.classList.add("number");
+            document.getElementById("numbers").appendChild(numbers);
+        }
+    }
+    options();
 </script>
 </html>
