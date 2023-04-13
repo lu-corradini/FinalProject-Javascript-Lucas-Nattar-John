@@ -1,7 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 body{
     display: flex;
     flex-direction: column;
@@ -9,43 +5,6 @@ body{
     align-items: center;
     justify-content: center;
 }
-main{
-    width: 100%;
-    height: 100%;
-}
-/* .table{
-    display: flex;
-    flex-direction: column;
-    border-collapse: collapse;
-    width: 100%;
-    height: 100%;
-    border-spacing: unset;
-}
-td{
-    border: solid 1px gray;
-    border-collapse: collapse;
-    transition: .4s;
-    padding: 18px;
-    font-weight: 800;
-}
-td:hover{
-    background-color: gray;
-}
-tr:nth-child(3){
-    border-bottom: 4px solid black;
-}
-tr:nth-child(6){
-    border-bottom: 4px solid black;
-}
-td:nth-child(3){
-    border-right: 4px solid black;
-}
-td:nth-child(6){
-    border-right: 4px solid black;
-}
-.selected{
-    background-color: gray;
-} */
 
 #numbers{
     height: 50px;
@@ -101,10 +60,10 @@ section{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    padding-left: 5%;
 }
-article{
+.headline{
     border: 1px solid white;
     border-radius: 5px;
     width: 20%;
@@ -116,6 +75,26 @@ article{
     row-gap: 1vh;
     background-color: rgba(255, 255, 255, .2);
 }
+.new{
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 20%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .2);
+    transition: .6s;
+    font-weight: 600;
+    font-size: 20px;
+}
+p{
+    width: 90%;
+}
+.new:hover{
+    scale: 1.1;
+    cursor: pointer;
+}   
 h1{
     padding-left: 4%;
     font-size: 24px;
@@ -159,7 +138,8 @@ nav{
     width: 100%;
     height: 100%;
     background-color: whitesmoke;
-    border: 3px solid black;
+    border: 3px solid gray  
+    ;
 }
   
 .cell input {
@@ -173,40 +153,13 @@ nav{
     
 }   
 
-
-
-
 /* To take the arrows off */
 .input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
 
-/* .box {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    border: 3px solid black;
-}
-
-.box input {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 24px;
-    border: none;
-    outline: none;
-    background-color: whitesmoke;
-}
-
-.box input:hover{
-    cursor: pointer;
-} */
-
-
-/* To take the arrows off */
-.input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
+.black-boxes{
+    background-color: black;
+    color: white;
 }

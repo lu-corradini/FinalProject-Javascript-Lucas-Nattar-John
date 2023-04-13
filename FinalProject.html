@@ -11,10 +11,13 @@
 <body>
     <header>
         <section>
-            <article>
+            <article class="headline">
                 <h1>Your New</h1>
                 <h2>Sudoku Game</h2>
             </article>
+            <button class="new" onClick="window.location.reload()">
+                <p>Start Your Game Again</p>
+            </button>
         </section>
     </header>
     <nav>
@@ -38,6 +41,7 @@
 
         </div> -->
     </main>
+
 </body>
 <script>
     // Define the Sudoku board
@@ -53,7 +57,6 @@
     [0, 0, 6, 9, 0, 0, 2, 0, 0],
     [0, 9, 0, 0, 0, 0, 0, 8, 0],
     [3, 0, 0, 8, 6, 0, 9, 0, 0]
-
     ];
   
     // Render the Sudoku board
@@ -65,30 +68,15 @@
         let input = document.createElement('input');
         input.type = 'number';
         input.maxLength = 1;
-        // input.value = sudokuBoard[i][j] === 0 ? '' : sudokuBoard[i][j];
         if(sudokuBoard[i][j] != "0"){
             cell.innerHTML = sudokuBoard[i][j];
+            cell.classList.add("black-boxes");
         }
         input.readOnly = sudokuBoard[i][j] !== 0;
-        // cell.appendChild(input);
         cell.addEventListener("click",seleNum);
         sudokuContainer.appendChild(cell);
-
     }
     }
-
-    // const board = document.getElementById('sudoku-board');
-    // let cells = [];
-    // for (let i = 0; i < 9; i++) {
-    //     for (let j = 0; j < 9; j++) {
-    //         const box = document.createElement('div');
-    //         box.classList.add('box');
-    //         box.addEventListener("click",seleNum);
-    //         box.innerHTML = `<input type="number" min="1" max="9" value="">`;
-    //         cells.push(box);
-    //         board.appendChild(box);
-    //     }
-    // }
 
     let numberSelected = null;
     let options = ()=>{
@@ -104,10 +92,6 @@
     }
     options();
 
-    // function numSelected(){
-    //     numberSelected = this;
-    //     numberSelected.classList.add("numSelected")
-    // }
     function numSelected(){  //function to select the numbers
         if(numberSelected == null){ 
             numberSelected = this;
@@ -115,10 +99,8 @@
         }else{
             numberSelected.classList.remove("numSelected");
             numberSelected = null; 
-        }
-        
+        } 
     }
-
     function seleNum(){
         if(numberSelected){
             if(this.innerText != ""){
@@ -128,6 +110,5 @@
             }
         }
     }
-    
 </script>
 </html>
