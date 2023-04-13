@@ -205,8 +205,12 @@ input::-webkit-inner-spin-button{
 } */
 
 
-/* To take the arrows off */
+/* To take the arrows off
 .input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
+} */
+
+.error {
+    color: red;
 }
