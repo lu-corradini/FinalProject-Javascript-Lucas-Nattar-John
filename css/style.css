@@ -139,10 +139,12 @@ nav{
 
 /* Styling for the Sudoku board */
 #sudoku-board {
-    display: block;
-    /* grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9,1fr); */
-    /* gap: 2px; */
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    justify-content: center;
+    margin-bottom: 10px;
     width: 400px;
     height: 400px;
     margin: 0 auto;
@@ -171,16 +173,16 @@ nav{
     
 }   
 
-#sudoku-board {
-    display: grid;
-    gap: 2px;
-    grid-template-columns: repeat(9, 50px);
-    grid-template-rows: repeat(9, 50px);
-    justify-content: center;
-    margin-bottom: 10px;
+
+
+
+/* To take the arrows off */
+.input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
 }
 
-.box {
+/* .box {
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -200,7 +202,7 @@ nav{
 
 .box input:hover{
     cursor: pointer;
-}
+} */
 
 
 /* To take the arrows off */

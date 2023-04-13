@@ -40,6 +40,53 @@
     </main>
 </body>
 <script>
+    // Define the Sudoku board
+    const sudokuBoard = [
+    [1, 0, 0, 4, 0, 3, 0, 0, 2],
+    [0, 4, 3, 0, 0, 5, 0, 9, 0],
+    [0, 0, 0, 0, 8, 0, 0, 1, 4],
+
+    [7, 0, 0, 2, 0, 8, 0, 0, 0],
+    [0, 6, 0, 0, 0, 0, 4, 0, 3],
+    [0, 3, 0, 0, 0, 9, 0, 0, 8],
+
+    [0, 0, 6, 9, 0, 0, 2, 0, 0],
+    [0, 9, 0, 0, 0, 0, 0, 8, 0],
+    [3, 0, 0, 8, 6, 0, 9, 0, 0]
+
+    ];
+  
+    // Render the Sudoku board
+    const sudokuContainer = document.getElementById('sudoku-board');
+    for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+        let cell = document.createElement('div');
+        cell.className = 'cell';
+        let input = document.createElement('input');
+        input.type = 'number';
+        input.maxLength = 1;
+        input.value = sudokuBoard[i][j] === 0 ? '' : sudokuBoard[i][j];
+        input.readOnly = sudokuBoard[i][j] !== 0;
+        cell.appendChild(input);
+        cell.addEventListener("click",seleNum);
+        sudokuContainer.appendChild(cell);
+
+    }
+    }
+
+    // const board = document.getElementById('sudoku-board');
+    // let cells = [];
+    // for (let i = 0; i < 9; i++) {
+    //     for (let j = 0; j < 9; j++) {
+    //         const box = document.createElement('div');
+    //         box.classList.add('box');
+    //         box.addEventListener("click",seleNum);
+    //         box.innerHTML = `<input type="number" min="1" max="9" value="">`;
+    //         cells.push(box);
+    //         board.appendChild(box);
+    //     }
+    // }
+
     let numberSelected = null;
     let options = ()=>{
         for(let n=1; n<=9; n++){
@@ -67,19 +114,6 @@
             numberSelected.classList.add("numSelected");
         }
         
-    }
-
-    const board = document.getElementById('sudoku-board');
-    let cells = [];
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            const box = document.createElement('div');
-            box.classList.add('box');
-            box.addEventListener("click",seleNum);
-            box.innerHTML = `<input type="number" max:"9" min:"1">`;
-            cells.push(box);
-            board.appendChild(box);
-        }
     }
 
     function seleNum(){
