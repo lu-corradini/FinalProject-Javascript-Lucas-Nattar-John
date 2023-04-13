@@ -65,9 +65,12 @@
         let input = document.createElement('input');
         input.type = 'number';
         input.maxLength = 1;
-        input.value = sudokuBoard[i][j] === 0 ? '' : sudokuBoard[i][j];
+        // input.value = sudokuBoard[i][j] === 0 ? '' : sudokuBoard[i][j];
+        if(sudokuBoard[i][j] != "0"){
+            cell.innerHTML = sudokuBoard[i][j];
+        }
         input.readOnly = sudokuBoard[i][j] !== 0;
-        cell.appendChild(input);
+        // cell.appendChild(input);
         cell.addEventListener("click",seleNum);
         sudokuContainer.appendChild(cell);
 
@@ -106,19 +109,23 @@
     //     numberSelected.classList.add("numSelected")
     // }
     function numSelected(){  //function to select the numbers
-        if(numberSelected != null){  // if the number  that is clicked, it is going to run this function
-            numberSelected.classList.remove("numSelected");
-            numberSelected = null; // going back to null after running it,
-        }else{
+        if(numberSelected == null){ 
             numberSelected = this;
             numberSelected.classList.add("numSelected");
+        }else{
+            numberSelected.classList.remove("numSelected");
+            numberSelected = null; 
         }
         
     }
 
     function seleNum(){
         if(numberSelected){
-            this.innerHTML = numberSelected.id;
+            if(this.innerText != ""){
+                return;
+            }else{
+                this.innerHTML = numberSelected.id;
+            }
         }
     }
     
