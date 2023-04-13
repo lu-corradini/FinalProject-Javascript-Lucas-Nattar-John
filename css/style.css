@@ -1,3 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    align-items: center;
+    justify-content: center;
+}
 main{
     display: flex;
     column-gap: 5vw;
@@ -10,7 +21,8 @@ main{
     height: 450px;
 }
 td{
-    border: solid 1px;
+
+    border: solid 2px gray;
     border-collapse: collapse;
     transition: .4s;
     /* padding: 13px; */
@@ -59,6 +71,7 @@ header{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 30vh;
+    width: 97%;
     border: 1px solid black;
 }
 section{
@@ -77,10 +90,11 @@ article{
     border-radius: 5px;
     width: 20%;
     height: 70%;
-    text-align: center;
-    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     flex-direction: column;
-    row-gap: 0vh; */
+    row-gap: 1vh;
     background-color: rgba(255, 255, 255, .2);
 }
 h1{
@@ -91,6 +105,9 @@ h2{
     padding-left: 4%;
     font-size: 26px;
     color: darkslategray;
+}
+nav{
+    width: 97%;
 }
 nav > ul{
     display: flex;
