@@ -75,7 +75,7 @@ section{
     row-gap: 1vh;
     background-color: rgba(255, 255, 255, .2);
 }
-.new{
+.new,.check{
     border: 1px solid white;
     border-radius: 5px;
     width: 20%;
@@ -88,10 +88,13 @@ section{
     font-weight: 600;
     font-size: 20px;
 }
+.check{
+    border: 1px solid black;
+}
 p{
     width: 90%;
 }
-.new:hover{
+.new:hover,.check:hover{
     scale: 1.1;
     cursor: pointer;
 }   
@@ -106,7 +109,10 @@ h2{
 nav{
     width: 94%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    row-gap: 2vh;
     border: 2px solid black;
     border-radius: 5px;
     padding: 16px;
@@ -163,31 +169,3 @@ input::-webkit-inner-spin-button{
     background-color: black;
     color: white;
 }
-/* .box {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    border: 3px solid black;
-}
-
-.box input {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 24px;
-    border: none;
-    outline: none;
-    background-color: whitesmoke;
-}
-
-.box input:hover{
-    cursor: pointer;
-} */
-
-
-/* To take the arrows off
-.input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-} */
